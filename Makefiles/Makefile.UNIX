@@ -1,0 +1,26 @@
+INC = \
+	-I/usr/local/Cellar/ffmpeg/2.6.1/include
+
+LINK_DIR = \
+	-L/usr/local/Cellar/ffmpeg/2.6.1/lib
+
+LIBS = \
+	-lavcodec \
+	-lavutil
+
+all:	decoding_encoding my_ffmpeg_encoding
+
+decoding_encoding:	decoding_encoding.o
+					gcc decoding_encoding.o -o decoding_encoding $(LINK_DIR) $(LIBS)
+
+my_ffmpeg_encoding:	my_ffmpeg_encoding.o
+					g++ my_ffmpeg_encoding.o -o my_ffmpeg_encoding $(LINK_DIR) $(LIBS)
+
+decoding_encoding.o:	decoding_encoding.c
+						gcc -c decoding_encoding.c $(INC)
+
+my_ffmpeg_encoding.o:	my_ffmpeg_encoding.cpp
+						g++ -c my_ffmpeg_encoding.cpp $(INC)
+
+clean:
+	rm -f decoding_encoding my_ffmpeg_encoding decoding_encoding.o my_ffmpeg_encoding.o
