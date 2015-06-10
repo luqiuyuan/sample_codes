@@ -1,0 +1,10 @@
+all:	build/demo
+
+build/demo:	build/demo.o
+		g++ build/demo.o -o build/demo $(LIBS)
+
+build/demo.o:	src/demo.cpp
+		g++ -c src/demo.cpp -o build/demo.o
+
+clean:
+	rm -f build/demo
