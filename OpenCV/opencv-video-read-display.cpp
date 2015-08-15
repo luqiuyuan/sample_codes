@@ -26,13 +26,14 @@ int main()
 		Mat frame;
 
 		bool bSuccess = cap.read(frame);
-		resize(frame, frame, Size(640,360));	// Here we actually resize the frame
-												// For the interpolation options, see http://docs.opencv.org/modules/imgproc/doc/geometric_transformations.html#resize
 
 		if(!bSuccess){
 			cout<<"cannot read frame."<<endl;
 			break;
 		}
+
+		resize(frame, frame, Size(640,360));	// Here we actually resize the frame
+												// For the interpolation options, see http://docs.opencv.org/modules/imgproc/doc/geometric_transformations.html#resize
 
 		imshow("video", frame);
 
