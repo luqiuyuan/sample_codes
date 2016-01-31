@@ -9,12 +9,13 @@ import java.io.IOException;
 
 public class BufferOrientedFileIO {
   public static void main(String[] args) {
-    Path inputFilepath = Paths.get(".", "in.txt");
-    Path outputFilepath = Paths.get(".", "out.txt");
+//    Path inputFilepath = Paths.get(".", "in.txt");  // get path from seperate strings
+    Path inputFilepath = Paths.get("in.txt");
+    Path outputFilepath = Paths.get("out.txt");
     Charset charset = Charset.forName("UTF-8");
     try {
       BufferedReader reader = Files.newBufferedReader(inputFilepath, charset);
-      BufferedWriter writer = Files.newBufferedWriter(outputFilepath, charset);
+      BufferedWriter writer = Files.newBufferedWriter(outputFilepath, charset);  // Create a new file no matter if the file exists
       String line;
       while ((line = reader.readLine()) != null) {
         line += '\n';
