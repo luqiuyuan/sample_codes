@@ -15,7 +15,7 @@ public class BufferOrientedFileIO {
     Charset charset = Charset.forName("UTF-8");
     try {
       BufferedReader reader = Files.newBufferedReader(inputFilepath, charset);
-      BufferedWriter writer = Files.newBufferedWriter(outputFilepath, charset);  // Create a new file no matter if the file exists
+      BufferedWriter writer = Files.newBufferedWriter(outputFilepath, charset);  // Create a new file if the file doesn't exist, or override the file
       String line;
       while ((line = reader.readLine()) != null) {
         line += '\n';
