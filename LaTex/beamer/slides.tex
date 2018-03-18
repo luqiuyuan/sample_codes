@@ -1,0 +1,61 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+\setbeamercolor{title}{bg=red!65!black,fg=white}
+\setbeamertemplate{itemize items}[triangle]
+
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+    \insertframenumber{}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{textpos}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\begin{document}
+
+\title{Slides Title}
+\author{Author One \and Author Two \and Author Three}
+\institute[]{\includegraphics[height=1.5cm,width=2cm]{imgs/logo.jpg}\\Department\\Institution}
+\date{June 2, 2016}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{100mm}(.9\textwidth,-1cm)
+%\includegraphics[height=1cm,width=1.15cm]{imgs/logo.png}
+\end{textblock*}}
+
+\begin{frame}{First Slide}
+	Site some article~\cite{sutherland1968}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+        \frametitle{References}
+        \bibliographystyle{plain}
+	\bibliography{ref}
+\end{frame}
+
+\end{document}
